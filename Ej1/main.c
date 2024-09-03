@@ -4,6 +4,7 @@ int main(){
 
   int x, y ,aux;
   printf("Ingrese dos números enteros: ") ;
+  printf("Este codigo está en desarrollo. Por favor tenga paciencia");
   scanf("%i", &x);
   scanf("%i", &y);
   aux = x;
