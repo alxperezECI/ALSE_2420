@@ -9,6 +9,6 @@ int main(){
   x = y;
   y = aux;
   std::cout << x << ", " << y << std::endl;
-  std::cout << "Hola Alse" << std::endl;
+  std::cout << "Hola Alse y compañia" << std::endl;
   return 0;
 }
