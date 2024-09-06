@@ -1,25 +1,60 @@
 #include <iostream>
+#include <stdlib.h>
 
-int main(){
-  // Defina un vector de flotantes de 50 elementos e 
-  // inicialicelo todo en 0.0 usando un for
-  
+int main()
+{
+    //randomizer vector
 
+    int numero, size, M, N, z;
+    M = 90;
+    N = 250;
+    size = 49;
+    float vector[size];
 
-  // Usando la función de números aleatorios llene el vector con 
-  // con datos entre 90 y 250 dejando en 0 el valor de la posición 25
+    for (int i =0; i<=size; i++)
+    {
+        numero = rand() % (N-M+1) + M;   // Este está entre M y N
+        vector[i] = numero;
+    }
 
+    vector[25] = 0; // setea numero 25 en 0
+    
+    for (int i = 0; i <= size; i++)
+    {
+        std::cout << vector[i] << " ";
 
-  // Muestre el contenido del vector en la pantalla en un arreglo de
-  // 10 filas por 5 columnas
+        if ((i + 1) % 5 == 0) 
+        {
+            std::cout << std::endl;
+        }
+    }
+    std::cout << std::endl << std::endl;
 
+    //ordenamiento burbuja
+    do{
+        z = 0;
+        for (int i = 0; i<size; i++)
+        {
+            int res;
+            if (vector[i]>vector[i+1])
+            {
+                res = vector[i];
+                vector[i]=vector[i+1];
+                vector[i+1] = res;
+                z = i;
+            }
+        }
+    }
+    while(z!=0);
+    
+    for (int i = 0; i <= size; i++)
+    {
+        std::cout << vector[i] << " ";
 
-  // Ordene el vector de menor a mayor con el método de la burbuja
-
-
-
-  // Muestre nuevamente el contenido del vector en la pantalla en un 
-  // arreglo de 10 filas por 5 columnas
-
-  return 0;
+        if ((i + 1) % 5 == 0) 
+        {
+            std::cout << std::endl;
+        }
+    }
+    return 0;
 }
