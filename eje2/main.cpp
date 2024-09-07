@@ -1,6 +1,8 @@
 #include <iostream>
 
 int main(){
+
+  printf("Esta es la primera tarea de ALSE")
   // Defina un vector de flotantes de 50 elementos e 
   // inicialicelo todo en 0.0 usando un for
   
