@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/eje4.dir/main.c.o -o eje4 

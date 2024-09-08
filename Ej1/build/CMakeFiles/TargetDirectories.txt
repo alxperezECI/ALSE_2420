@@ -1,0 +1,4 @@
+/home/selene/Proyectos/ALSE_2420-1/Ej1/build/CMakeFiles/eje3.dir
+/home/selene/Proyectos/ALSE_2420-1/Ej1/build/CMakeFiles/eje4.dir
+/home/selene/Proyectos/ALSE_2420-1/Ej1/build/CMakeFiles/edit_cache.dir
+/home/selene/Proyectos/ALSE_2420-1/Ej1/build/CMakeFiles/rebuild_cache.dir

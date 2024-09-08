@@ -1,0 +1,3 @@
+/home/selene/Proyectos/ALSE_2420-1/eje2/build/CMakeFiles/eje5.dir
+/home/selene/Proyectos/ALSE_2420-1/eje2/build/CMakeFiles/edit_cache.dir
+/home/selene/Proyectos/ALSE_2420-1/eje2/build/CMakeFiles/rebuild_cache.dir
