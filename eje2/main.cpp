@@ -10,15 +10,9 @@ std::srand(static_cast<unsigned>(std::time(0)));
 primer = 90;
 segundo = 250;
 float vec[50];
-
+//inicializar en 0 el vector
 for (int i = 0; i < 50; i++) {
     vec[i]= 0;
-    std::cout << vec[i] << " ";
-    // salto
-    if ((i + 1) % 5 == 0) 
-    {
-        std::cout << std::endl;
-    }
 }
 
 for (int i = 0; i < 50; ++i) {
