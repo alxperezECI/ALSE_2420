@@ -5,7 +5,7 @@ int main(){
   // inicialicelo todo en 0.0 usando un for
   
 
-
+  // otra linea de prueba
   // Usando la función de números aleatorios llene el vector con 
   // con datos entre 90 y 250 dejando en 0 el valor de la posición 25
 
