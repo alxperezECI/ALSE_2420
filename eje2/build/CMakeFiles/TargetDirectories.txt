@@ -1,0 +1,3 @@
+/home/penguin/Proyectos/ALSE_2420/eje2/build/CMakeFiles/eje5.dir
+/home/penguin/Proyectos/ALSE_2420/eje2/build/CMakeFiles/edit_cache.dir
+/home/penguin/Proyectos/ALSE_2420/eje2/build/CMakeFiles/rebuild_cache.dir

@@ -6,6 +6,7 @@ using namespace std;
 int main()
 {
 /*
+
   // Defina un vector de flotantes de 50 elementos e 
   // inicialicelo todo en 0.0 usando un for
   
