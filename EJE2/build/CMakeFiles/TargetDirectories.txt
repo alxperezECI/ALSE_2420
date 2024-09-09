@@ -1,0 +1,3 @@
+/home/dominguito/ALSE_2420/EJE2/build/CMakeFiles/ex1.dir
+/home/dominguito/ALSE_2420/EJE2/build/CMakeFiles/edit_cache.dir
+/home/dominguito/ALSE_2420/EJE2/build/CMakeFiles/rebuild_cache.dir
