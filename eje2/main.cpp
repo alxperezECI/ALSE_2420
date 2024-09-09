@@ -98,7 +98,7 @@ int main()
     {
       if (vect[j] < vect[j + 1]) 
       {
-        // Intercambiar los elementos si están en el orden incorrecto
+      
         float temp = vect[j];
         vect[j] = vect[j + 1];
         vect[j + 1] = temp;
