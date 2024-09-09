@@ -20,6 +20,7 @@ for (int i = 0; i < 50; i++)
     flotantes[i]= 90 + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (250 - 90)));
   }
 }
+std::cout << "Matriz sin organizar:"<<std::endl;
   // Muestre el contenido del vector en la pantalla en un arreglo de
   // 10 filas por 5 columnas
 for (int i = 0; i < 50; i++)
@@ -30,6 +31,7 @@ for (int i = 0; i < 50; i++)
     std::cout << std::endl;
   }
 }
+std::cout << std::endl<< "Matriz Organizada:" << std::endl;
   // Ordene el vector de menor a mayor con el método de la burbujas
 for (int i = 0; i < 50 - 1; i++)
 {
