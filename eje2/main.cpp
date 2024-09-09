@@ -58,6 +58,7 @@ printf("---------------------------------------------\n");
                 burbuja = true;  // Marca que se ha hecho un intercambio
             }
         }
+        
     } while (burbuja); 
 
   
