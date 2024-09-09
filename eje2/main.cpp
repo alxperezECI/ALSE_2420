@@ -17,7 +17,7 @@ int main()
   // Verificar la inicialización imprimiendo los valores
   for (size_t i = 0; i < vect.size(); ++i) 
   {
-    cout << "arr[" << i+1 << "] = " << vect[i] << endl;
+    cout << "vect[" << i+1 << "] = " << vect[i] << endl;
   }
 */
 
@@ -41,7 +41,7 @@ int main()
   // Imprimir los valores del array
   for (size_t i = 0; i < vect.size(); ++i) 
   {
-    cout << "vect[" << i << "] = " << arr[i] << endl;
+    cout << "vect[" << i << "] = " << vect[i] << endl;
   }
 
 */
