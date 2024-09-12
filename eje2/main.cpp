@@ -17,13 +17,19 @@ int main(){
  
   // Defina un vector de flotantes de 50 elementos e 
   // inicialicelo todo en 0.0 usando un for
+
+
   printf("Ordenando un vector con el método de la burbuja\n ");
   std::vector<float> v(49);
+  // OTRA FORMA DE  HACERLO ES FLOAT V[50]={0.0}
   int i, j, h=0;
   float aux;
   for (i=0; i<49; i++){
-    v[i]=0;
+    v[i]=0.;
   }
+
+
+
 
   // Usando la función de números aleatorios llene el vector con 
   // con datos entre 90 y 250 dejando en 0 el valor de la posición 25
