@@ -1,5 +1,4 @@
 #include <iostream>
-
 #include <vector>
 #include <cstdlib>
 
@@ -53,7 +52,8 @@ int main(){
      std::cout << std::endl;
   }}
   h=0;
-=======
+
+/* De esta forma lo hicimos en clase
 #include <stdlib.h>
 #include <time.h>
 
@@ -80,8 +80,8 @@ int main(){
 
     std::cout << std::endl;
   }
+*/
 
->>>>>>> f6a9e21dae80bb55ded24f8d5941ab496721f98a
 
   // Ordene el vector de menor a mayor con el método de la burbuja
 
