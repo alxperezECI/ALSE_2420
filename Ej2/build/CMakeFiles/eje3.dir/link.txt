@@ -1,0 +1,1 @@
+/usr/bin/i686-linux-gnu-g++ -g CMakeFiles/eje3.dir/main.cpp.o -o eje3 

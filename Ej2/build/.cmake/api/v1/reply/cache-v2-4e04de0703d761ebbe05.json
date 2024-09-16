@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/mathew/Proyectos/ALSE_2420/build"
+			"value" : "/home/mathew/Proyectos/ALSE_2420/Ej2/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -155,10 +155,10 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "CXX compiler"
+					"value" : "No help, variable specified on the command line."
 				}
 			],
-			"type" : "STRING",
+			"type" : "FILEPATH",
 			"value" : "/usr/bin/i686-linux-gnu-g++"
 		},
 		{
@@ -283,10 +283,10 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "C compiler"
+					"value" : "No help, variable specified on the command line."
 				}
 			],
-			"type" : "STRING",
+			"type" : "FILEPATH",
 			"value" : "/usr/bin/i686-linux-gnu-gcc"
 		},
 		{
@@ -591,7 +591,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/mathew/Proyectos/ALSE_2420/Ej1"
+			"value" : "/home/mathew/Proyectos/ALSE_2420/Ej2"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -835,7 +835,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "intercambio"
+			"value" : "ejemplos"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1118,7 +1118,7 @@
 			"value" : "FALSE"
 		},
 		{
-			"name" : "intercambio_BINARY_DIR",
+			"name" : "ejemplos_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1127,10 +1127,10 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/mathew/Proyectos/ALSE_2420/build"
+			"value" : "/home/mathew/Proyectos/ALSE_2420/Ej2/build"
 		},
 		{
-			"name" : "intercambio_IS_TOP_LEVEL",
+			"name" : "ejemplos_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -1142,7 +1142,7 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "intercambio_SOURCE_DIR",
+			"name" : "ejemplos_SOURCE_DIR",
 			"properties" : 
 			[
 				{
@@ -1151,7 +1151,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/mathew/Proyectos/ALSE_2420/Ej1"
+			"value" : "/home/mathew/Proyectos/ALSE_2420/Ej2"
 		}
 	],
 	"kind" : "cache",
