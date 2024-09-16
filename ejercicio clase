@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main (int argc,char** argv ){
+    t1 = atof( argv[1]);
+    incr1 = atof( arg[2] );
+    datos(t1, incr1)
+
+return 0;
+}
+float datos(float t1,float incr){
+
+float vector[100]={0.0}
+for (i=0,i<100,i++){
+    vector[i]=i*incr
+}
+for (i=0,i<100,i++){
+    if(0<sin(2*pi()*t1*vector[i]) && 0 >= sin(2*pi()*t1*vector[i+1]) or 0>sin(2*pi()*t1*vector[i]) && 0 <= sin(2*pi()*t1*vector[i+1])){
+        cout << vector[i] << "," << sin(2*pi()*t1*vector[i])<<"<-"<<endl;
+    else
+        cout << vector[i] << "," << sin(2*pi()*t1*vector[i])<<endl;
+    }
+}
+return 0;
+} 
