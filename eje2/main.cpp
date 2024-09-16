@@ -99,16 +99,5 @@ int main(){
   // arreglo de 10 filas por 5 columnas
 
 
-  printf("Este es el verctor odenado\n");
-  while(h<=49){
-    for(i=0;i<10;i++){
-      for (j=h; j<(h+5);j++) {
-          std::cout <<" "<< v[j];
-        }
-      h=h+5;
-      std::cout << std::endl;
-    }
-  }
-
   return 0;
 }
