@@ -1,0 +1,3 @@
+/home/juano/Proyectos/ALSE_2420/eje3/CMakeFiles/funcion.dir
+/home/juano/Proyectos/ALSE_2420/eje3/CMakeFiles/edit_cache.dir
+/home/juano/Proyectos/ALSE_2420/eje3/CMakeFiles/rebuild_cache.dir
