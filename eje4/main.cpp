@@ -1,52 +1,32 @@
 #include <iostream>
-#include <stdlib.h>
-#include <cmath>
+#include<stdlib.h>
+#include<cmath>
 
-using namespace std;
 
-long factorial( long n )
-{ 
-  if( n > 1)
-    return n * factorial( n - 1);
-  
-  return 1;
-}
-
-int factorial( int n )
-{
-  // Recursión
-  // factorial (n) = n* n-1 * n-2 * .... 1
-  // factorial (1) = 1
-  if (n > 0) {
-    if (n > 1){
-      return n * factorial( n - 1);
-    }else{
-      return 1;
-    }
+int main(char** argv){
+  float temp=0;
+  float versen
+  char flag;
+  float vector [100];
+  for (i=0, i< int(100), i++,){
+    temp =temp + int(1)(char*argv[2]);
+    vector [i] = temp;
   }
-  return -1;
-}
-
-int main(int argc, char** argv){
-  
-  double antena = 89.98;
-  double *ptr_dbl = &antena;
-  cout << antena << ", este valor está almancenado en " << &antena << endl;
-  *ptr_dbl = 101.9;
-  cout << *ptr_dbl << ", este valor está almancenado en " << ptr_dbl << endl;
-
-  cout << "El valor de argc: " << argc << endl;
-  
-  for(int i = 0; i < argc; i++)
-    cout << "El primer elemento de char** " << argv[i] << endl; 
-
-  // Llamando la función recursiva
-  long valor;  
-  for(int i = 1; i < argc; i++){
-    valor = atoi( argv[ i ] );
-    cout << "El factorial de :" << valor << " es ";
-    cout << factorial( valor ) << endl;
+  if (argv[2]>0.5)
+    return -1;
+  vector[0]=0;
+  float versen[100];
+  for(int i=0, i<100, i++){
+    versen[i]=sin(2*pi*argv[1]*vector[i]);
   }
-
-  return 0;
+  for(int i=0, i<99, i++){
+    if(versen[i+1]<0) and (versen[i]<o)
+      char flag << "<-";
+    if (versen[i+1]>o) and (versen[i]<0)
+      f<char flag="<-";
+    else ;
+      char flag =" ";
+    STD::cout<<vector[i] << "," << versen[i] << flag << endl;  
+  }
+  return 0;
 }
