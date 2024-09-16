@@ -1,0 +1,3 @@
+/home/julianb/ALSE_2420/taller_sin/build/CMakeFiles/eje1.dir
+/home/julianb/ALSE_2420/taller_sin/build/CMakeFiles/edit_cache.dir
+/home/julianb/ALSE_2420/taller_sin/build/CMakeFiles/rebuild_cache.dir
