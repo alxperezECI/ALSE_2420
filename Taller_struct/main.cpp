@@ -16,7 +16,7 @@
 */
 
 	
-using namespace std;
+using namespace std; //permite usar los elementos del espacio como nombres estándar sin tener que especificarlo explícitamente cada vez.
 
 int main(){
   complex a, b, c; // le dice al programa que a,b,c son numeros complejos
@@ -70,4 +70,5 @@ int main(){
 
   return 0; // retorna 0
 }
-// no me corre el programa, me sale un error en la linea 41, no se si es por el parentesis de cierre que no deberia estar ahi pero no puedo modificar el codigo main.cpp
+// no me corre el programa, me sale un error en la linea 43, no se si es por el parentesis de cierre que no deberia estar ahi pero no puedo modificar el codigo main.cpp
+// no se pueede modificar por indicaciones del taller
