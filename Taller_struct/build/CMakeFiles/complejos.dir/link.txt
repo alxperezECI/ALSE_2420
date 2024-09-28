@@ -1,0 +1,1 @@
+/usr/bin/i686-linux-gnu-g++ CMakeFiles/complejos.dir/main.cpp.o -o complejos 
