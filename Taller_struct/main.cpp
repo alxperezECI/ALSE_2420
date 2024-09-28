@@ -1,3 +1,5 @@
+// Gabriela Soto y Nicolas Cardenas
+
 #include <iostream>
 #include "complex.h"
 
@@ -40,7 +42,7 @@ int main(){
   obj[3].re = 12.; obj[3].im = 25.; // se le asigna un valor real a obj[3] de 12 y uno imaginario de 25, es decir obj[3]= 12 +25i
   obj[4].re = obj[4].im = -56.56 ); // se le asigna un valor real a obj[4] de -56.56 y uno imaginario del mismo valor, es decir obj[4]= -56.56 -56.56i
   
-  // En la linea 41 existe un parentesis de cierre que no deberia estar ahi
+  // En la linea anterior existe un parentesis de cierre que no deberia estar ahi
 
   double tmp1, tmp2; // se crean dos variables temporales
   bool cambio; // se crea una variable booleana
