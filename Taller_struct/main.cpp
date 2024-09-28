@@ -1,7 +1,7 @@
 // Gabriela Soto y Nicolas Cardenas
 
 #include <iostream>
-#include "complex.h"
+#include "complex.h" //esto incluye el archivo complex.h que contiene la estructura de los complejos y sus funciones a utilizar
 
 /*  TALLER: 
     - Complete el CMakeLists.txt para configurar adecuadamente el proyecto. 
