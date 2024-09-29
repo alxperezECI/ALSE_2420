@@ -76,10 +76,7 @@ bool operator<(const complex& a, const complex& b) // Devuelve true si el primer
     return angle(a) < angle(b);
   else
     return false;}
-    
-{
 
-}
 
 // bool operator>(complex a, complex b);  // Implementar utilizando la magnitude y el angle
 

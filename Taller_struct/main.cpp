@@ -38,11 +38,11 @@ int main(){
   complex obj[5]; // crea un arreglo de 5 valores complejos
   obj[0].re = 34.; obj[0].im = -4.; // se le asigna un valor real a obj[0] de 34 y uno imaginario de -4, es decir obj[0]= 34 -4i
   obj[1].re = obj[1].im = 45.; // se le asigna un valor real a obj[1] de 45 y uno imaginario del mismo valor, es decir obj[1]= 45 +45i
-  obj[2].re 33.33; obj[2].im = -45.; // se le asigna un valor real a obj[2] de 33.33 y uno imaginario de -45, es decir obj[2]= 33.33 -45i
+  obj[2].re = 33.33; obj[2].im = -45.; // se le asigna un valor real a obj[2] de 33.33 y uno imaginario de -45, es decir obj[2]= 33.33 -45i
+  //linea anterior falta un = en obj[2].re = 33.33 a contra orden se cambia para que compile
   obj[3].re = 12.; obj[3].im = 25.; // se le asigna un valor real a obj[3] de 12 y uno imaginario de 25, es decir obj[3]= 12 +25i
-  obj[4].re = obj[4].im = -56.56 ); // se le asigna un valor real a obj[4] de -56.56 y uno imaginario del mismo valor, es decir obj[4]= -56.56 -56.56i
-  
-  // En la linea anterior existe un parentesis de cierre que no deberia estar ahi
+  obj[4].re = obj[4].im = -56.56; // se le asigna un valor real a obj[4] de -56.56 y uno imaginario del mismo valor, es decir obj[4]= -56.56 -56.56i
+  // En la linea anterior existe un parentesis de cierre que no deberia estar ahi a contra orden se cambia para que compile
 
   double tmp1, tmp2; // se crean dos variables temporales
   bool cambio; // se crea una variable booleana
@@ -70,5 +70,4 @@ int main(){
 
   return 0; // retorna 0
 }
-// no me corre el programa, me sale un error en la linea 43, no se si es por el parentesis de cierre que no deberia estar ahi pero no puedo modificar el codigo main.cpp
-// no se pueede modificar por indicaciones del taller
+// se modifican solo 2 ordenes ya que se asume error tipografico, borrando un parentesis de cierre y agregando un igual en la asignacion de obj[2].re
