@@ -36,9 +36,9 @@ int main(){
   complex obj[5];
   obj[0].re = 34.; obj[0].im = -4.;
   obj[1].re = obj[1].im = 45.;
-  obj[2].re 33.33; obj[2].im = -45.;
+  obj[2].re = 33.33; obj[2].im = -45.;
   obj[3].re = 12.; obj[3].im = 25.;
-  obj[4].re = obj[4].im = -56.56 );
+  obj[4].re = obj[4].im = -56.56 ;
 
   double tmp1, tmp2;
   bool cambio;
@@ -64,4 +64,10 @@ int main(){
     cout << obj[i] << endl;
 
   return 0;
+// Este código implementa un algoritmo de ordenamiento de burbuja (bubble sort)
+// para ordenar un arreglo de objetos 'obj' de tipo 'complex'.
+// La comparación entre los objetos 'complex' usa una sobrecarga del operador '<', la cual compara las partes real e imaginaria de los números complejos.
+// Durante el ordenamiento, si los objetos no están en el orden correcto, sus partes reales ('re') e imaginarias ('im') son intercambiadas.
+// El ciclo 'do-while' continúa ejecutándose hasta que no se realicen más intercambios, lo que indica que el arreglo está completamente ordenado.
+// Posteriormente, se imprimen los elementos ordenados del arreglo en la consola.
 }
