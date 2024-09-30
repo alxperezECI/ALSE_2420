@@ -12,11 +12,14 @@ struct complex
 };
 
 // Implemente la siguiente función y explique para qué sirve
+
+/*es el constructor*/
+
 complex crearcomplex(double r = 0., double i = 0)
 {
   complex c;
-  complex c.re = r;
-  complex c.im = i;
+  c.re = r;
+  c.im = i;
 
   return c;
 }
@@ -24,19 +27,19 @@ complex crearcomplex(double r = 0., double i = 0)
 /* Ajuste la declaración de estas funciones para tener parámetros por referencia seguros
    e implementelas. Explique qué hace cada una de ellas.*/
 
-double angle(constant complex &a) // saca el angulo con la formula, queda en radianes.
+double angle(const complex &a) // saca el angulo con la formula, queda en radianes.
 {
-  return atan(a.im, a.re);
+  return atan2(a.im, a.re);
 }
-double magnitude(constant complex &a) // saca la magnitud con su formula.
+double magnitude(const complex &a) // saca la magnitud con su formula.
 {
   return sqrt(a.re * a.re + a.im * a.im);
 }
-complex conjugate(constant complex &a) // hace el conjugado.
+complex conjugate(const complex &a) // hace el conjugado.
 {
   complex res;
-  result.re = a.re;
-  result.im = -a.im;
+  res.re = a.re;
+  res.im = -a.im;
   return res;
 }
 

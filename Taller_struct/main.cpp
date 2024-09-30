@@ -40,7 +40,7 @@ int main()
   obj[0].re = 34.;                // asigna a obj[0] en su parte real un valor
   obj[0].im = -4.;                // asigna a obj[0] en su parte imaginaria un valor
   obj[1].re = obj[1].im = 45.;    // asigna a obj[1] un valor igual en su parte real e imaginaria
-  obj[2].re 33.33;                // asigna a obj[2] en su parte real un valor
+  obj[2].re = 33.33;              // asigna a obj[2] en su parte real un valor
   obj[2].im = -45.;               // asigna a obj[2] en su parte imaginaria un valor
   obj[3].re = 12.;                // asigna a obj[3] en su parte real un valor
   obj[3].im = 25.;                // asigna a obj[3] en su parte imaginaria un valor
