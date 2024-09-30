@@ -1,15 +1,12 @@
 #include <iostream>
-<<<<<<< HEAD
 #include <cmath>//se incluye para las operaciones matematica arctan y raiz
-=======
->>>>>>> 220d0e37c439c9493b0c544699e005a7ad30b189
 
 using namespace std;
 
 struct complex{
   double re;
   double im;
-<<<<<<< HEAD
+
   // Implemente la siguiente función y explique para qué sirve
   complex(double r =0. , double i = 0):re(r),im(i){};
 /* La funcion es un contructor con valores por defecto:
@@ -83,28 +80,3 @@ std::ostream ó std::cout o cualquier otro flujo de salida y un objeto de la cla
 en la consola en este caso complex en el segundo parametro se utiliza la referencia contante para que no sea modificada
 
 */
-=======
-};
-
-// Implemente la siguiente función y explique para qué sirve
-complex(double r =0. , double i = 0
-
-/* Ajuste la declaración de estas funciones para tener parámetros por referencia seguros
-   e implementelas. Explique qué hace cada una de ellas.
-double angle(complex a);
-double magnitude(complex a);
-complex conjugate(complex a);
-
-// Ajuste la declaración de estas funciones para tener parámetros por referencia seguros
-// e implementelas. Explique por qué se llama sobrecarga de operadores.
-complex operator+(complex a, complex b);
-complex operator-(complex a, complex b);
-complex operator*(complex a, complex b);
-bool operator==(complex a, complex b); // Implementar utilizando la magnitude y el angle
-bool operator<(complex a, complex b);  // Implementar utilizando la magnitude y el angle
-bool operator>(complex a, complex b);  // Implementar utilizando la magnitude y el angle
-
-// Esta sobrecarga es espacial. Indague cómo se debe realizar, explique su correcto funcionamiento
-// e implementela.
-ostream& operator<<(std::ostream& out, complex a);
->>>>>>> 220d0e37c439c9493b0c544699e005a7ad30b189

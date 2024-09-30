@@ -36,21 +36,14 @@ int main(){
   complex obj[5];
   obj[0].re = 34.; obj[0].im = -4.;
   obj[1].re = obj[1].im = 45.;
-<<<<<<< HEAD
-  obj[2].re =33.33; obj[2].im = -45.;
+  obj[2].re = 33.33; obj[2].im = -45.;
   obj[3].re = 12.; obj[3].im = 25.;
   obj[4].re = obj[4].im = -56.56 ;
-=======
-  obj[2].re 33.33; obj[2].im = -45.;
-  obj[3].re = 12.; obj[3].im = 25.;
-  obj[4].re = obj[4].im = -56.56 );
->>>>>>> 220d0e37c439c9493b0c544699e005a7ad30b189
 
   double tmp1, tmp2;
   bool cambio;
 
   // Qué hace este código?
-<<<<<<< HEAD
 /*
 este codigo es el algoritmo de ordenamiento por burbuja, este metodo es para ordenar de menor a mayor
 comparando los elementos, se repite hasta que este completamente ordenado, en este caso compara los numeros
@@ -71,30 +64,9 @@ complejos para ordenarlos de menor a mayor, utiliza un siclo do while para que a
       }
     }
   }while(cambio == true);//si hay intercambio se repite el proceso
-=======
-  do{
-    cambio = false;
-    for (int i =0; i < 4; ++i ){
-      if( obj[i] < obj[i+1] ){
-      }else{
-        tmp1 = obj[i].re;
-        tmp2 = obj[i].im;
-        obj[i].re = obj[i+1].re ;
-        obj[i].im = obj[i+1].im ;
-        obj[i+1].re = tmp1 ;
-        obj[i+1].im = tmp2 ;
-        cambio = true;
-      }
-    }
-  }while(cambio == true);
->>>>>>> 220d0e37c439c9493b0c544699e005a7ad30b189
-  
+
   for( int i = 0 ; i < 5; ++i )
     cout << obj[i] << endl;
 
   return 0;
-<<<<<<< HEAD
 };
-=======
-}
->>>>>>> 220d0e37c439c9493b0c544699e005a7ad30b189
