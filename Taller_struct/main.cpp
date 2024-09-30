@@ -44,21 +44,25 @@ int main(){
   bool cambio;
 
   // Qué hace este código?
+// Algoritmo de ordenación por burbujas optimizado
   do{
-    cambio = false;
+    cambio = false;// Inicializa la bandera de cambio
+// Itera sobre los elementos del arreglo
     for (int i =0; i < 4; ++i ){
       if( obj[i] < obj[i+1] ){
+ // No hay necesidad de cambiar nada si el elemento actual es menor
       }else{
+ // Intercambia los elementos si están en el orden incorrecto
         tmp1 = obj[i].re;
         tmp2 = obj[i].im;
         obj[i].re = obj[i+1].re ;
         obj[i].im = obj[i+1].im ;
         obj[i+1].re = tmp1 ;
         obj[i+1].im = tmp2 ;
-        cambio = true;
+        cambio = true;// Indica que hubo un cambio
       }
     }
-  }while(cambio == true);
+  }while(cambio == true);// Repite hasta que no haya más cambios
   
   for( int i = 0 ; i < 5; ++i )
     cout << obj[i] << endl;
