@@ -1,0 +1,3 @@
+/home/mathew/Proyectos/ALSE_2420/Ej2/build/CMakeFiles/eje3.dir
+/home/mathew/Proyectos/ALSE_2420/Ej2/build/CMakeFiles/edit_cache.dir
+/home/mathew/Proyectos/ALSE_2420/Ej2/build/CMakeFiles/rebuild_cache.dir

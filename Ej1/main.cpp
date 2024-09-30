@@ -3,7 +3,7 @@
 int main(){
 
   int x, y ,aux;
-  std::cout << "Ingrese dos números enteros: " ;
+  std::cout << "Digite dos números enteros: " ;
   std::cin >> x >> y;
   aux = x;
   x = y;
