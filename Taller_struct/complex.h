@@ -66,46 +66,19 @@ complex operator*(const complex &a, const complex &b){
   return c;
 }
 bool operator==( const complex &a, const complex &b){
-  return magnitude(a) == magnitude(b);
+  return magnitude(a) == magnitude(b); //si se cumple es true
 }
 bool operator>(const complex &a, const complex &b){
-  return magnitude(a) > magnitude(b);
+  return magnitude(a) > magnitude(b); //si se cumple es true
 }
 bool operator<( const complex &a, const complex &b){
-  return angle(a) < angle(b);
+  return angle(a) < angle(b);//si se cumple es true
 }
-ostream& operator<<(std::ostream& out, complex a);
+ostream& operator<<(std::ostream& out, complex a){
+    // Definimos el formato de salida: (parte real, parte imaginaria)
+    out << "(" << a.re << ", " << a.im << "i)";
+    return out;
+}  // permite encadenamiento para num complejo
 /*Al intentar imprimir un número complejo con cout << sum, el compilador no sabe cómo hacerlo porque no se ha sobrecargado
  el operador << para la estructura complex, por lo tanto se utiliza la sobrecarga espacial para el correcto funcionamiento.
 */
-int main2(){
-    complex a, b; 
-    complex sum= a + b;
-    complex res = a - b;
-    complex produ = a * b;
-
-
-    std::cout << "Ingrese la parte real de a: ";
-    std::cin >> a.re;
-    std::cout << "Ingrese la parte imaginaria de a: ";
-    std::cin >> a.im;
-    std::cout << "Ingrese la parte real de b: ";
-    std::cin >> b.re;
-    std::cout << "Ingrese la parte imaginaria de b: ";
-    std::cin >> b.im;
-
-    // Imprimir resultados
-    cout << "La magnitud del numero complejo es: " << magnitude(a) << endl;
-    cout << "Ángulo del número complejo: " << angle(a) << " rads" << endl;
-    cout << "Suma: " << sum  << endl;
-    cout << "Resta: " << res << endl;
-    cout << "Multiplicación: " << produ << endl;
-    cout << "¿la magnitud de a es igual a la magnitud de b?: " << (magnitude(a)==magnitude(b) ? "Sí" : "No") << endl;
-    cout << "¿el angulo de a es igual el angulo de b?: " << (angle(a)==angle(b) ? "Sí" : "No") << endl;
-    cout << "¿la magnitud de a es menor que la magnitud de b?: " << (magnitude(a)<magnitude(b) ? "Sí" : "No") << endl;
-    cout << "¿el angulo de a es menor que el angulo de b?: " << (angle(a)<angle(b) ? "Sí" : "No") << endl;
-    cout << "¿la magnitud de a es mayor que la magnitud de b?: " << (magnitude(a)>magnitude(b) ? "Sí" : "No") << endl;
-    cout << "¿el angulo de a es mayor que el angulo de b?: " << (angle(a)>angle(b) ? "Sí" : "No") << endl;
-  return 0;
-};
-

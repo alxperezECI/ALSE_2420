@@ -48,8 +48,8 @@ int main(){
   valores, verdadero o falso*/
 
 
- /*compara los numeros imaginarios con los imaginarios del siguiente numero complejo de igual forma para los reales y los ordena de mayor a menor, si la verificacion
-   de si es menor que el siguiente no se cumple, entonces los guada en tmp2 y tmp1 respectivamente y realizar la ordenacion descendente, odenamiento burbuja*/
+ /*compara los numeros imaginarios con los imaginarios del siguiente numero complejo de igual forma para los reales y los ordena de menor a mayor, si la verificacion
+   de si es mayor que el siguiente no se cumple, entonces los guada en tmp2 y tmp1 respectivamente y realizar la ordenacion descendente, odenamiento burbuja*/
 
   do{
     cambio = false;
