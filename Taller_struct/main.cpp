@@ -1,67 +1,28 @@
 #include <iostream>
-#include "complex.h"
+#include "complex.h" // Incluimos el archivo de encabezado para usar la estructura complex
 
-/*  TALLER: 
-    - Complete el CMakeLists.txt para configurar adecuadamente el proyecto. 
-    - Nombrar el ejecutable usando la variable de configuración PROJECT_NAME
-    - Usar tanto el main.cpp como el complex.h para construir el ejecutable.
-    - Completar el archivo complex.h de acuerdo a las indicaciones internas.
-	- No se debe modificar el código del main.cpp y la aplicación debe 
-	    ejecutarse correctamente. Se deben explicar cada una de las líneas 
-		del main en comentarios.
-	- Enviar el pull request.
-	- Se puede desarrollar de forma individual o máximo en parejas.
-*/
-
-	
 using namespace std;
 
-int main(){
-  complex a, b, c;
-  a.re = 34.8; a.im = -12.4;
-  b = conjugate(a);
-  c.re = c.im = 24.59;
+int main() {
+    complex a(3.0, 4.0); // Creamos un número complejo a con parte real 3.0 y parte imaginaria 4.0
+    complex b(1.0, 2.0); // Creamos otro número complejo b con parte real 1.0 y parte imaginaria 2.0
 
-  complex d =  c + b;
+    // Sumar a y b
+    complex c = a + b; // Usamos la sobrecarga del operador + para sumar a y b
+    cout << "Suma: " << c << endl; // Imprimimos el resultado de la suma
 
-  //d = c - a;
-  cout << c << endl;
+    // Restar a y b
+    complex d = a - b; // Usamos la sobrecarga del operador - para restar a y b
+    cout << "Resta: " << d << endl; // Imprimimos el resultado de la resta
 
-  cout << d << endl;
+    // Multiplicar a y b
+    complex e = a * b; // Usamos la sobrecarga del operador * para multiplicar a y b
+    cout << "Multiplicación: " << e << endl; // Imprimimos el resultado de la multiplicación
 
-  cout << "Son iguales a y b?: " << ( a==b ) << endl;
-  cout << "son iguales b y d?: " << ( b==d ) << endl;
+    // Comparaciones
+    cout << "¿a es igual a b? " << (a == b) << endl; // Comparamos a y b
+    cout << "¿a es mayor que b? " << (a > b) << endl; // Comparamos si a es mayor que b
+    cout << "¿a es menor que b? " << (a < b) << endl; // Comparamos si a es menor que b
 
-// Ahora con arrglos
-  complex obj[5];
-  obj[0].re = 34.; obj[0].im = -4.;
-  obj[1].re = obj[1].im = 45.;
-  obj[2].re 33.33; obj[2].im = -45.;
-  obj[3].re = 12.; obj[3].im = 25.;
-  obj[4].re = obj[4].im = -56.56 );
-
-  double tmp1, tmp2;
-  bool cambio;
-
-  // Qué hace este código?
-  do{
-    cambio = false;
-    for (int i =0; i < 4; ++i ){
-      if( obj[i] < obj[i+1] ){
-      }else{
-        tmp1 = obj[i].re;
-        tmp2 = obj[i].im;
-        obj[i].re = obj[i+1].re ;
-        obj[i].im = obj[i+1].im ;
-        obj[i+1].re = tmp1 ;
-        obj[i+1].im = tmp2 ;
-        cambio = true;
-      }
-    }
-  }while(cambio == true);
-  
-  for( int i = 0 ; i < 5; ++i )
-    cout << obj[i] << endl;
-
-  return 0;
+    return 0; // Finaliza el programa
 }
