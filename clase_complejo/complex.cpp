@@ -25,13 +25,13 @@ Complex::Complex(double r =0. , double i = 0 ){
     im = i;
 };
 
-double Complex::angle()const{
+double Complex::angle(){
     return atan2(im, re);
 };
-double Complex::magnitude()const{
+double Complex::magnitude(){
     return sqrt(re*re + im*im);
 };
-Complex Complex::conjugate()const{
+Complex Complex::conjugate(){
     Complex r;
     r.re = re;
     r.im = -im;
@@ -62,7 +62,6 @@ bool Complex::operator==( const Complex &a ){
         res = true;
     return res;
 }; 
-
 bool Complex:: operator<( const Complex &a ){
     bool res;
     if( magnitude() < a.magnitude() )
