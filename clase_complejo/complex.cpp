@@ -25,13 +25,13 @@ Complex::Complex(double r =0. , double i = 0 ){
     im = i;
 };
 
-double Complex::angle(){
+double Complex::angle()const{
     return atan2(im, re);
 };
-double Complex::magnitude(){
+double Complex::magnitude()const{
     return sqrt(re*re + im*im);
 };
-Complex Complex::conjugate(){
+Complex Complex::conjugate()const{
     Complex r;
     r.re = re;
     r.im = -im;
