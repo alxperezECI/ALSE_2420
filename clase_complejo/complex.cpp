@@ -4,6 +4,15 @@
 
 using namespace std;
 
+/* constructor */
+
+Complex::Complex(double r, double i) : re(r), im(i)
+{
+  // forma eficiente, asigna los valores al crear
+}
+
+/* funciones get y set */
+
 void Complex::Re(const double &r)
 {
   re = r;
@@ -24,83 +33,70 @@ double Complex::Im()
   return im;
 }
 
-Complex::Complex()
-{
-  re = im = 0.;
-}
-
-Complex::Complex(double r, double i)
-{
-  re = r;
-  im = i;
-}
+/* funciones matematicas */
 
 double Complex::angle() const
 {
   return atan2(im, re);
 }
-
 double Complex::magnitude() const
 {
-  return sqrt(re*re + im*im);
+  return sqrt(re * re + im * im);
 }
-
 Complex Complex::conjugate() const
 {
-  Complex r;
-  r.re = re;
-  r.im = -im;
-  return r;
-}
-
-Complex Complex::operator+( const Complex &a )
-{
   Complex res;
-
+  res.re = re;
+  res.im = -im;
   return res;
 }
 
-Complex Complex::operator-( const Complex &a )
+/* sobrecarga de operadores */
+
+Complex Complex::operator+(const Complex &a)
 {
   Complex res;
-
+  res.re = a.re + re;
+  res.im = a.im + im;
   return res;
 }
-
-Complex Complex::operator*( const Complex &a )
+Complex Complex::operator-(const Complex &a)
 {
   Complex res;
-
+  res.re = a.re - re;
+  res.im = a.im - im;
   return res;
 }
-
-bool Complex::operator==( const Complex &a )
+Complex Complex::operator*(const Complex &a)
 {
-  bool res = false;
-  if ( magnitude() == a.magnitude())
+  Complex res;
+  res.re = a.re * re - a.im * im;
+  res.im = a.re * im + a.im * re;
+  return res;
+}
+bool Complex::operator==(const Complex &a)
+{
+  return a.magnitude() == magnitude() && a.angle() == angle();
+}
+bool Complex::operator<(const Complex &a)
+{
+  return a.magnitude() < magnitude();
+}
+bool Complex::operator>(const Complex &a)
+{
+  return a.magnitude() < magnitude();
+}
+
+ostream &operator<<(std::ostream &out, Complex a)
+{
+  out << a.re;
+  if (a.im >= 0)
   {
-    res = true;
+    out << " + " << a.im << "i" << endl;
   }
-  return res;
-}
-
-bool Complex::operator<( const Complex &a )
-{
-  bool res;
-
-  return res;
-}
-
-bool Complex::operator>( const Complex &a )
-{
-  bool res;
-
-  return res;
-}
-
-
-ostream& operator<<(ostream& out, Complex a)
-{
-  out << a.re << " + " << a.im << "j";
+  else
+  {
+    out << " - " << -a.im << "i" << endl;
+  }
   return out;
 }
