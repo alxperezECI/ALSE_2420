@@ -98,7 +98,7 @@ bool Complex::operator>( const Complex &a ){
     return res;
 }; 
 
-ostream& operator<<(std::ostream& out, Complex a);{
+ostream& operator<<(std::ostream& out, Complex a){
     out << a.re << " + " << a.im << "j";
     return out;
 
