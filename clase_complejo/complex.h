@@ -7,8 +7,8 @@ class Complex{
   double im;
 
 public:
-  // Implemente la siguiente función y explique para qué sirve
-  Complex(double r = 0. , double i = 0. );
+  Complex( );
+  Complex(double r , double i );
 
   double angle() const;
   double magnitude() const;
