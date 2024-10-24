@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Polinomio.h"
+#include "polinomio.h"
 #include <math.h>
 
 using namespace std;

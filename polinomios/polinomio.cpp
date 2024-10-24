@@ -20,13 +20,38 @@ Polinomio::Polinomio(string pol) {
 
   Polinomio Polinomio::operator+( const Polinomio &a ){
     Polinomio c('X');
+    std::list<termino>::const_iterator it;
+    for (it = _terminoL.begin(); it != _terminoL.end(); ++it){
+    c.nuevoTermino(it->coef, it->exp);
+    }
+    for (it = a._terminoL.begin(); it != a._terminoL.end(); ++it){
+    c.nuevoTermino(it->coef, it->exp);
+    }
+    c.simplificar();
     return c;
   }
-  Polinomio Polinomio::operator-( const Polinomio &a ){
+
+   Polinomio Polinomio::operator-(const Polinomio &a) {
     Polinomio c('X');
+
+    std::list<termino>::const_iterator it;
+    for (it = _terminoL.begin(); it != _terminoL.end(); ++it) {
+        c.nuevoTermino(it->coef, it->exp);
+    }
+
+    for (it = a._terminoL.begin(); it != a._terminoL.end(); ++it) {
+        c.nuevoTermino(-it->coef, it->exp);
+    }
+    c.simplificar();
     return c;
-  }
+};
   bool Polinomio::operator==( const Polinomio &a ){
+    if( _grado != a._grado ) return false;
+    std::list<termino>::const_iterator it1, it2;
+    for(it1 = _terminoL.begin(), it2 = a._terminoL.begin(); it1 != _terminoL.end(); ++it1, ++it2){
+        if( it1->coef != it2->coef || it1->exp != it2->exp )
+            return false;
+    }
     return true;
   } 
 
@@ -107,7 +132,19 @@ bool Polinomio::redefinir(string pol) {
 }
   
 bool Polinomio::simplificar(){
-	
+    std::list<termino>::iterator it1, it2;
+    for(it1 = _terminoL.begin(); it1 != _terminoL.end(); ++it1){
+        it2 = it1;
+        ++it2;
+        while( it2 != _terminoL.end() ){
+            if( it1->exp == it2->exp ){
+                it1->coef += it2->coef;
+                it2 = _terminoL.erase( it2 );
+            }else
+                ++it2;
+        }
+    }
+
 	return true;
 }
 
@@ -125,3 +162,4 @@ string  Polinomio::getString(){
     }
     return stream.str();
 }
+//hola
