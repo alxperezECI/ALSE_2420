@@ -211,26 +211,30 @@ bool Polinomio::redefinir(string pol) {
     return true;
 }
   
-bool Polinomio::simplificar(){
-	list<termino>::iterator it1, it2;
-    it1 = _terminoL.begin();  
-    while( it1 != _terminoL.end() ){
-        it2 = it1; 
-        ++it2;
-        while( it2 != _terminoL.end()  ){
-            if( it1->exp == it2->exp && it1 != it2 ){
+bool Polinomio::simplificar() {
+    list<termino>::iterator it1 = _terminoL.begin();
+    while (it1 != _terminoL.end()) {
+        list<termino>::iterator it2 = next(it1);
+        while (it2 != _terminoL.end()) {
+            if (it1->exp == it2->exp) {
                 it1->coef += it2->coef;
-                it2 = _terminoL.erase( it2 );
-            } 
-            ++it2;
-            
-            if (it1->coef == 0){
-                  it1 = _terminoL.erase(it1);
-            }      
+                it2 = _terminoL.erase(it2);
+            } else {
+                ++it2;
+            }
         }
-        ++it1;
+        if (it1->coef == 0) {
+            it1 = _terminoL.erase(it1);
+        } else {
+            ++it1;
+        }
     }
-  return true;
+
+    if (_terminoL.empty()) {
+        it1= _terminoL.insert(it1, termino(0, 0));
+    }
+    
+    return true;
 }
 
 string  Polinomio::getString(){
