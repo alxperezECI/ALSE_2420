@@ -17,13 +17,54 @@ Polinomio::Polinomio(string pol) {
     _variable = 0;
     redefinir( pol );
 }
+  
+Polinomio::Polinomio(const Polinomio &c){
+  if( this != &c ){
+    _variable = c._variable;
+    _grado = c._grado;
+    _terminoL = c._terminoL;
+  }
+}
 
-  Polinomio Polinomio::operator+( const Polinomio &a ){
+Polinomio::~Polinomio(){
+    borrar();
+}
+
+Polinomio Polinomio::operator=( const Polinomio &a ){
+    if( this != &a ){
+        _variable = a._variable;
+        _grado = a._grado;
+        _terminoL = a._terminoL;
+    }
+    return *this;
+}
+
+Polinomio Polinomio::operator+( const Polinomio &a ){
     Polinomio c('X');
+    list<termino>::const_iterator it;
+    for(it = _terminoL.begin(); it != _terminoL.end(); ++it){
+        c.nuevoTermino( it->coef, it->exp );
+    }
+    for(it = a._terminoL.begin(); it != a._terminoL.end(); ++it){
+        c.nuevoTermino( it->coef, it->exp );
+    }
+    c.simplificar();
     return c;
   }
+  /// @brief 
+  /// @param a 
+  /// @return 
+
   Polinomio Polinomio::operator-( const Polinomio &a ){
     Polinomio c('X');
+    list<termino>::const_iterator it;
+    for(it = _terminoL.begin(); it != _terminoL.end(); ++it){
+        c.nuevoTermino( it->coef, it->exp );
+    }
+    for(it = a._terminoL.begin(); it != a._terminoL.end(); ++it){
+        c.nuevoTermino( -(it->coef), it->exp );
+    }
+    c.simplificar();
     return c;
   }
   bool Polinomio::operator==( const Polinomio &a ){
@@ -33,6 +74,12 @@ Polinomio::Polinomio(string pol) {
 ostream& operator<<(std::ostream& out, Polinomio a){
     out << a.getString();
     return out;
+}
+
+bool Polinomio::borrar(){
+    _terminoL.clear();
+    _grado = -1;
+    return true;
 }
 
 bool Polinomio::ordenar(){
@@ -56,11 +103,11 @@ bool Polinomio::redefinir(string pol) {
 
     while( posT2 != string::npos ){
         // Encontrando cada termino
-        posM = pol.find("+", posT1 + 1 );
+        posM = pol.find_first_of("+", posT1 + 1 );
         posm = pol.find("-", posT1 + 1);
         // cout << posM << " " << posm << endl;
-        if( posM != string::npos && posm != string::npos )
-            posT2 = min( posM, posm );
+        if( posM != string::npos )
+            posT2 = min(posM, posm);
         else if( posM == string::npos )
             posT2 = posm;
         else
@@ -107,8 +154,28 @@ bool Polinomio::redefinir(string pol) {
 }
   
 bool Polinomio::simplificar(){
-	
-	return true;
+	list<termino>::iterator it1, it2;
+    it1 = _terminoL.begin();  
+    while( it1 != _terminoL.end() ){
+        it2 = it1; 
+        ++it2;
+        while( it2 != _terminoL.end()  ){
+            //cout << &(*it1) << " y " << &(*it2) << endl;
+            if( it1->exp == it2->exp && it1 != it2 ){
+                cout << "Sumando " << it1->coef << " y " << it2->coef << endl;
+                it1->coef += it2->coef;
+                _terminoL.erase( it2 );
+                if(it1->coef == 0){
+                    _terminoL.erase( it1 );
+                    it1 = _terminoL.begin();
+                }
+                it2 = it1;
+            }
+            ++it2;
+        }
+        ++it1;
+    }
+    return true;
 }
 
 string  Polinomio::getString(){
