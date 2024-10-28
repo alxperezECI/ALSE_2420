@@ -1,0 +1,3 @@
+/home/gabi/proyectos/ALSE_2420/polinomios/build/CMakeFiles/polinomios.dir
+/home/gabi/proyectos/ALSE_2420/polinomios/build/CMakeFiles/edit_cache.dir
+/home/gabi/proyectos/ALSE_2420/polinomios/build/CMakeFiles/rebuild_cache.dir
