@@ -6,6 +6,7 @@
 
 using namespace std;
 
+typedef std::pair<int, float> termino;
 
 Polinomio::Polinomio(char var) {
     _grado = -1;
@@ -43,10 +44,10 @@ Polinomio Polinomio::operator+( const Polinomio &a ){
     Polinomio c('X');
     list<termino>::const_iterator it;
     for(it = _terminoL.begin(); it != _terminoL.end(); ++it){
-        c.nuevoTermino( it->coef, it->exp );
+        c.nuevoTermino( it->second, it->first );
     }
     for(it = a._terminoL.begin(); it != a._terminoL.end(); ++it){
-        c.nuevoTermino( it->coef, it->exp );
+        c.nuevoTermino( it->second, it->first);
     }
     c.simplificar();
     return c;
@@ -59,10 +60,10 @@ Polinomio Polinomio::operator+( const Polinomio &a ){
     Polinomio c('X');
     list<termino>::const_iterator it;
     for(it = _terminoL.begin(); it != _terminoL.end(); ++it){
-        c.nuevoTermino( it->coef, it->exp );
+        c.nuevoTermino( it->second, it->first );
     }
     for(it = a._terminoL.begin(); it != a._terminoL.end(); ++it){
-        c.nuevoTermino( -(it->coef), it->exp );
+        c.nuevoTermino( -(it->second), it->first );
     }
     c.simplificar();
     c.ordenar();
@@ -74,7 +75,7 @@ Polinomio Polinomio::operator+( const Polinomio &a ){
         list<termino>::const_iterator it1, it2;
         for(it1 = _terminoL.begin(); it1 != _terminoL.end(); ++it1){
             for(it2 = a._terminoL.begin(); it2 != a._terminoL.end(); ++it2){
-                c.nuevoTermino( it1->coef * it2->coef, it1->exp + it2->exp );
+                c.nuevoTermino( it1->second * it2->second, it1->first + it2->first );
             }
         }
         c.simplificar();
@@ -86,7 +87,7 @@ Polinomio Polinomio::operator+( const Polinomio &a ){
         Polinomio c('X');
         list<termino>::const_iterator it,it2;
         for(it = _terminoL.begin(); it != _terminoL.end(); ++it){
-            c.nuevoTermino( it->coef / a , it->exp );
+            c.nuevoTermino( it->second / a , it->first );
         }
         c.simplificar();
         c.ordenar();
@@ -107,10 +108,10 @@ Polinomio Polinomio::operator+( const Polinomio &a ){
     list<termino>::const_iterator it1 = _terminoL.begin();
     list<termino>::const_iterator it2 = a._terminoL.begin();
     while (it1 != _terminoL.end() && it2 != a._terminoL.end()) {
-        if (it1->coef != it2->coef) {
+        if (it1->second != it2->second) {
             return false;
         }
-        if (it1->exp != it2->exp) {
+        if (it1->first != it2->first) {
             return false;
         }
         ++it1;
@@ -132,16 +133,9 @@ bool Polinomio::borrar(){
 }
 
 bool Polinomio::ordenar(){
-    for (list<termino>::iterator it1 = _terminoL.begin(); it1 != _terminoL.end(); ++it1){
-        for (list<termino>::iterator it2 = it1; it2 != _terminoL.end(); ++it2){
-            if (it1->exp < it2->exp){
-                termino temp = *it1;
-                *it1 = *it2;
-                *it2 = temp;
-            }
-        }
-    }
-	return true;
+    _terminoL.sort();
+    _terminoL.reverse();
+    return true;
 }
   
 void Polinomio::nuevoTermino(float c, int p) {
@@ -216,14 +210,14 @@ bool Polinomio::simplificar() {
     while (it1 != _terminoL.end()) {
         list<termino>::iterator it2 = next(it1);
         while (it2 != _terminoL.end()) {
-            if (it1->exp == it2->exp) {
-                it1->coef += it2->coef;
+            if (it1->first == it2->first) {
+                it1->second += it2->second;
                 it2 = _terminoL.erase(it2);
             } else {
                 ++it2;
             }
         }
-        if (it1->coef == 0) {
+        if (it1->second == 0) {
             it1 = _terminoL.erase(it1);
         } else {
             ++it1;
@@ -241,12 +235,12 @@ string  Polinomio::getString(){
     stringstream stream;
     std::list<termino>::iterator it;
     for(it = _terminoL.begin(); it != _terminoL.end(); ++it){
-        if(it->coef > 0) stream << "+";
-            stream << it->coef ;
-        if(it->exp > 0 ){
+        if(it->second > 0) stream << "+";
+            stream << it->second ;
+        if(it->first > 0 ){
             stream << _variable;
-            if( it->exp > 1 )
-                stream << "^" << it->exp;
+            if( it->first > 1 )
+                stream << "^" << it->first;
         }
     }
     return stream.str();

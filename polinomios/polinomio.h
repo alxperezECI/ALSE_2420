@@ -4,12 +4,7 @@
 
 using namespace std;
 
-struct termino{
-  double coef;
-  int    exp;
-  termino(int e, double c): coef(c), exp(e) {};
-};
-
+typedef std::pair<int, float> termino;
 
 class Polinomio{
   char _variable;
