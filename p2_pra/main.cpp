@@ -5,7 +5,7 @@
 #include <string>
 #include <sstream>
 #include <algorithm>
-
+#include "empleado.cpp"
 #include "empleado.h"
 
 using namespace std;
@@ -42,6 +42,7 @@ int main(int argc, char**argv){
   cargarArchivo( argv[1], _trabajadores );//carga bien
   size_t tam = _trabajadores.size();
   cout << "Número de trabajadores: " << tam << endl;
+  cout << left << setw(20)<<"Empleado"
 // Calcula el valor a pagar por horas extras de cada trabajador 
 // y mostrar el valor mensual y el valor de las horas extras en un 
 // arreglo tabular
