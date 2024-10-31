@@ -39,7 +39,7 @@ int main(int argc, char**argv){
   float c = 0.;
   vector<Empleado> _trabajadores;
 
-  cargarArchivo( argv[1], _trabajadores );//carga bien
+  cargarArchivo( argv[1], _trabajadores );
   size_t tam = _trabajadores.size();
   cout << "Número de trabajadores: " << tam << endl;
 

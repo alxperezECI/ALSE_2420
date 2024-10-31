@@ -2,15 +2,13 @@
 #include <iostream>
 #include <string>
 
-// Constructor
+
 Empleado::Empleado(const std::string& nombre, const std::string& apellido, 
     const unsigned int& cedula, double salarioMensual)
     : _nombre(nombre), _apellido(apellido), _cedula(cedula), 
     _salarioMensual(salarioMensual) 
     {
         _horasExDia.clear();
-
-       
     }
 
 void Empleado::agregarHorasExtras(int dia, float horas){
@@ -33,7 +31,7 @@ double Empleado::val_horasextra(){
     return tHorasExtras * val_hora;
 }
 
-bool Empleado::min(){
+bool Empleado::menor(){
     std::vector<HorasExtras>::const_iterator it;
     double aux = 0;
 
@@ -42,8 +40,5 @@ bool Empleado::min(){
     for ( it = _horasExDia.begin(); it != _horasExDia.end(); ++it) {
         tHorasExtras += it->second;
     }
-
-
-    
 
 };

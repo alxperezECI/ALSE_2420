@@ -6,7 +6,7 @@
 
 
 
-typedef std::pair<int, float> HorasExtras; // (día, horas)
+typedef std::pair<int, float> HorasExtras;
 
 class Empleado {
     std::string _nombre;
@@ -23,9 +23,9 @@ public:
 
     double val_horasextra();
 
-    bool min();
-    bool max();
+    bool menor();
+    bool mayor();
 
 };
 
-#endif // EMPLEADO_H;
+#endif
