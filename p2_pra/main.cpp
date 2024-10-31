@@ -38,11 +38,17 @@ void cargarArchivo( char* file, vector<Empleado> &trabajadores ){
 int main(int argc, char**argv){
   float c = 0.;
   vector<Empleado> _trabajadores;
-  
+
   cargarArchivo( argv[1], _trabajadores );//carga bien
   size_t tam = _trabajadores.size();
   cout << "Número de trabajadores: " << tam << endl;
 // Calcula el valor a pagar por horas extras de cada trabajador 
+/*
+ for (int i = 0; i < tam; i++){
+    Empleado persona = _trabajadores.at(i)
+    a.val_horasextra()
+  }*/
+
 // y mostrar el valor mensual y el valor de las horas extras en un 
 // arreglo tabular
 // Empleado (Nmbre y apellido) | Salario mensual | Horas extras | Total a pagar
