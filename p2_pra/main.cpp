@@ -46,7 +46,25 @@ int main(int argc, char**argv){
 // y mostrar el valor mensual y el valor de las horas extras en un 
 // arreglo tabular
 // Empleado (Nmbre y apellido) | Salario mensual | Horas extras | Total a pagar
+}
+double valor_hora_extra = 10;
 
+for (size_t i = 0; i < _trabajadores.size(); ++i) {
+    Empleado empleado = _trabajadores[i]; 
+
+    double totalHorasExtras = Empleado.calcular_horas(valor_hora_extra);
+    
+    int totalHoras = 0;
+
+    const std::vector<HorasExtras>& horasExtras = empleado.getHorasExtras();
+    for (size_t j = 0; j < horasExtras.size(); ++j) {
+        totalHoras += horasExtras[j].second; 
+    }
+}
+    double totalAPagar = empleado.getSalario() + totalHorasExtras; 
+    std::cout << empleado.getNombre() << " " << empleado.getApellido() << " | "
+              << empleado.getSalario() << " | " << totalHoras << " | "
+              << totalAPagar << std::endl;
 
 /* Encontrar y reportar el empleado con mayor número de horas extras
 */
