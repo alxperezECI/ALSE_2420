@@ -31,7 +31,7 @@ Complex::Complex()
 
 Complex::Complex(double r, double i)
 {
-  re = r;
+  re = r; 
   im = i;
 }
 
