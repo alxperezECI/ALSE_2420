@@ -2,66 +2,48 @@
 #include <iostream>
 #include <string>
 
+// Constructor
 Empleado::Empleado(const std::string& nombre, const std::string& apellido, 
     const unsigned int& cedula, double salarioMensual)
     : _nombre(nombre), _apellido(apellido), _cedula(cedula), 
     _salarioMensual(salarioMensual) 
     {
         _horasExDia.clear();
-    }
-void Empleado:: agregarHorasExtras(int dia, float horas){
 
-    _horasExDia.push_back( std::make_pair(dia, horas) );
-}
-
- double Empleado::getSalarioTotal() const{
-    double total = _salarioMensual;
-    for( auto& par : _horasExDia ){
-        total += par.second * 10;
+       
     }
-    return total;
-}
 
-void Empleado::getSalarioMensual(double salarioMensual) { 
-    _salarioMensual = salarioMensual; 
-}
-std:: string empleadoMax{ 
-    double maxHorasExtras = 0;
-    for (size_t i = 0; i < tam; i++) {
-        vector<HorasExtras> horas = _trabajadores[i].getHorasExtras();
-        double totalHoras = 0.0;
-        for (size_t j = 0; j < horas.size(); j++) {
-            totalHoras += horas[j].second;
-        }
-        if (totalHoras > maxHorasExtras) {
-            maxHorasExtras = totalHoras;
-            empleadoMax = _trabajadores[i];
-        }
-    }
-        
-    return maxHorasExtras;
+void Empleado::agregarHorasExtras(int dia, float horas){
+
+    HorasExtras aux (dia, horas);
+
+    _horasExDia.push_back(aux);
+
 };
 
-std:: string empleadoMin{ 
-    double minHorasExtras = std::numeric_limits<double>::max();
-Empleado empleadoMin;
-bool empleadoEncontrado = false;
+double Empleado::val_horasextra(){
+    const double val_hora = _salarioMensual / 192;
+    double tHorasExtras = 0;
+    std::vector<HorasExtras>::const_iterator it;
 
-for (size_t i = 0; i < tam; i++) {
-    vector<HorasExtras> horas = _trabajadores[i].getHorasExtras();
-    double totalHoras = 0.0;
-
-    for (size_t j = 0; j < horas.size(); j++) {
-        totalHoras += horas[j].second;
+    for ( it = _horasExDia.begin(); it != _horasExDia.end(); ++it) {
+        tHorasExtras += it->second;
     }
 
-    if (totalHoras < minHorasExtras && totalHoras > 0) {
-        minHorasExtras = totalHoras;
-        empleadoMin = _trabajadores[i];
-        empleadoEncontrado = true;
-    }
+    return tHorasExtras * val_hora;
 }
-    return empleadoMin;
+
+bool Empleado::min(){
+    std::vector<HorasExtras>::const_iterator it;
+    double aux = 0;
+
+
+    double tHorasExtras = 0;
+    for ( it = _horasExDia.begin(); it != _horasExDia.end(); ++it) {
+        tHorasExtras += it->second;
+    }
+
+
+    
 
 };
-// s

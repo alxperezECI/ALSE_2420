@@ -4,7 +4,10 @@
 #include <string>
 #include <vector>
 
+
+
 typedef std::pair<int, float> HorasExtras; // (día, horas)
+
 class Empleado {
     std::string _nombre;
     std::string _apellido;
@@ -17,14 +20,12 @@ public:
         const unsigned int& cedula, double salarioMensual);
 
     void agregarHorasExtras(int dia, float horas) ;
-    void getSalarioMensual(double salarioMensual) { _salarioMensual = salarioMensual; }
-    std::string getNombre() const { return _nombre; }
-    std::string getApellido() const { return _apellido; }
-    double getSalarioMensual() const { return _salarioMensual; }
-    std::vector<HorasExtras> getHorasExtras() const { return _horasExDia; }
-    double getSalarioTotal() const;
+
+    double val_horasextra();
+
+    bool min();
+    bool max();
+
 };
 
-#endif // EMPLEADO_H
-
-// sd
+#endif // EMPLEADO_H;
