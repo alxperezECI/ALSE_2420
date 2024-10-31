@@ -4,11 +4,13 @@
 
 using namespace std;
 
-struct termino{
+/*struct termino{
   double coef;
   int    exp;
   termino(int e, double c): coef(c), exp(e) {};
 };
+*/
+typedef std::pair<int,float> termino;
 
 
 class Polinomio{
@@ -20,7 +22,10 @@ class Polinomio{
 public:
   Polinomio(char var );
   Polinomio(string str );
+  Polinomio(const Polinomio &c);
+  ~Polinomio();
 
+  Polinomio operator=( const Polinomio &a );
   Polinomio operator+( const Polinomio &a );
   Polinomio operator-( const Polinomio &a );
   bool operator==( const Polinomio &a ); 
