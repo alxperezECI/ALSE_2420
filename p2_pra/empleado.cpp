@@ -1,67 +1,58 @@
 #include "empleado.h"
-#include <iostream>
 #include <string>
+#include <iostream>
+
+const double PAGO_POR_HORA_EXTRA = 20.0;
 
 // Constructor
 Empleado::Empleado(const std::string& nombre, const std::string& apellido, 
     const unsigned int& cedula, double salarioMensual)
     : _nombre(nombre), _apellido(apellido), _cedula(cedula), 
-    _salarioMensual(salarioMensual) 
-    {
-        _horasExDia.clear();
-    }
-void Empleado:: agregarHorasExtras(int dia, float horas){
-
-    _horasExDia.push_back( std::make_pair(dia, horas) );
+      _salarioMensual(salarioMensual) 
+{
+    _horasExDia.clear();
 }
 
- double Empleado::getSalarioTotal() const{
-    double total = _salarioMensual;
-    for( auto& par : _horasExDia ){
-        total += par.second * 10;
-    }
-    return total;
+void Empleado::agregarHorasExtras(int dia, float horas) {
+    _horasExDia.emplace_back(dia, horas);
 }
 
-void Empleado::getSalarioMensual(double salarioMensual) { 
-    _salarioMensual = salarioMensual; 
+double Empleado::calcularHorasExtras() const {
+    double totalPagoHorasExtras = 0.0;
+    for (const auto& horasExtra : _horasExDia) {
+        totalPagoHorasExtras += horasExtra.second * PAGO_POR_HORA_EXTRA;
+    }
+    return totalPagoHorasExtras;
 }
-std:: string empleadoMax{ 
-    double maxHorasExtras = 0;
-    for (size_t i = 0; i < tam; i++) {
-        vector<HorasExtras> horas = _trabajadores[i].getHorasExtras();
-        double totalHoras = 0.0;
-        for (size_t j = 0; j < horas.size(); j++) {
-            totalHoras += horas[j].second;
-        }
-        if (totalHoras > maxHorasExtras) {
-            maxHorasExtras = totalHoras;
-            empleadoMax = _trabajadores[i];
-        }
+
+float Empleado::getTotalHorasExtras() const {
+    float totalHoras = 0.0;
+    for (const auto& horasExtra : _horasExDia) {
+        totalHoras += horasExtra.second;
     }
-        
-    return maxHorasExtras;
-};
-
-std:: string empleadoMin{ 
-    double minHorasExtras = std::numeric_limits<double>::max();
-Empleado empleadoMin;
-bool empleadoEncontrado = false;
-
-for (size_t i = 0; i < tam; i++) {
-    vector<HorasExtras> horas = _trabajadores[i].getHorasExtras();
-    double totalHoras = 0.0;
-
-    for (size_t j = 0; j < horas.size(); j++) {
-        totalHoras += horas[j].second;
-    }
-
-    if (totalHoras < minHorasExtras && totalHoras > 0) {
-        minHorasExtras = totalHoras;
-        empleadoMin = _trabajadores[i];
-        empleadoEncontrado = true;
-    }
+    return totalHoras;
 }
-    return empleadoMin;
 
-};
+std::string Empleado::getNombreCompleto() const {
+    return _nombre + " " + _apellido;
+}
+
+double Empleado::getTotalAPagar() const {
+    // Calcular el salario por hora
+    double salarioPorHora = _salarioMensual / 240.0;
+    double pagoHorasExtras = 0.0;
+
+    // Calcular el pago total por las horas extras
+    for (const auto& horasExtra : _horasExDia) {
+        pagoHorasExtras += horasExtra.second * salarioPorHora;
+    }
+    return _salarioMensual + pagoHorasExtras;
+}
+
+double Empleado::getSalarioMensual() const {
+    return _salarioMensual;
+}
+
+const std::vector<HorasExtras>& Empleado::getHorasExtras() const {
+    return _horasExDia;
+}

@@ -20,7 +20,6 @@ void cargarArchivo( char* file, vector<Empleado> &trabajadores ){
   stringstream ss;
   
   ifstream archivo( file );
-
   if( archivo.is_open() ){
     while( !archivo.eof() && getline( archivo, texto)){
       ss.clear();
@@ -42,61 +41,39 @@ int main(int argc, char**argv){
   
   cargarArchivo( argv[1], _trabajadores );//carga bien
   size_t tam = _trabajadores.size();
-  cout << "Número de trabajadores: " << tam << endl;
+  cout << "Empleado | Salario mensual | Horas extras | Total a pagar" << endl;
 
-// Calcula el valor a pagar por horas extras de cada trabajador 
-// y mostrar el valor mensual y el valor de las horas extras en un 
-// arreglo tabular
-// Empleado (Nmbre y apellido) | Salario mensual | Horas extras | Total a pagar
+    Empleado maxHorasExtras = _trabajadores[0];
+    Empleado minHorasExtras = _trabajadores[0];
+    int diaMaxHorasExtras = -1;
+    float maxHorasDia = 0.0;
 
-  for (size_t i = 0; i < tam; i++){
-    cout << _trabajadores[i].getNombre() << " " << _trabajadores[i].getApellido() << " | " << _trabajadores[i].getSalarioMensual() << " | ";
-    vector<HorasExtras> horas = _trabajadores[i].getHorasExtras();
-    for (size_t j = 0; j < horas.size(); j++){
-      c += horas[j].second;
+    for (const auto& empleado : _trabajadores) {
+      float totalHorasExtras = empleado.getTotalHorasExtras();
+      int totalAPagar = empleado.getTotalAPagar();
+      int salarioMensual = empleado.getSalarioMensual();
+      c += totalAPagar;
+      cout << empleado.getNombreCompleto() << " | " << salarioMensual << " | " << totalHorasExtras << " | " << totalAPagar << endl;
+
+        // Encontrar el empleado con mayor y menor horas extras
+        if (totalHorasExtras > maxHorasExtras.getTotalHorasExtras()) {
+            maxHorasExtras = empleado;
+        }
+        if (totalHorasExtras < minHorasExtras.getTotalHorasExtras()) {
+            minHorasExtras = empleado;
+        }
+
+        // Encontrar el día con mayor horas extras
+        for (const auto& horasExtra : empleado.getHorasExtras()) {
+            if (horasExtra.second > maxHorasDia) {
+                maxHorasDia = horasExtra.second;
+                diaMaxHorasExtras = horasExtra.first;
+            }
+        }
     }
-    cout << c << " | " << _trabajadores[i].getSalarioTotal() << endl;
-    c = 0.;
-  }
-
-/* Encontrar y reportar el empleado con mayor número de horas extras
-*/
-
-Empleado empleadoMax();
-    double maxHorasExtras = 0;
     
-    if (maxHorasExtras > 0) {
-        cout << "Empleado con mayor número de horas extras: " 
-            << empleadoMax.getNombre() << " " 
-            << empleadoMax.getApellido() 
-            << " | Horas extras: " << maxHorasExtras << endl;
-    }
-
-
-/* Encontrar y reportar el empleado con menor número de horas extras
-*/
-Empleado empleadoMin();
-if (empleadoEncontrado) {
-    cout << "Empleado con menor número de horas extras: " 
-         << empleadoMin.getNombre() << " " 
-         << empleadoMin.getApellido() 
-         << " | Horas extras: " << minHorasExtras << endl;
-}
-
-/* Encontrar y reportar el día con mayor número de horas extras
-*/
-
-  vector<int> dias;
-  vector<float> horas;
-  for (size_t i = 0; i < tam; i++){
-    vector<HorasExtras> horas = _trabajadores[i].getHorasExtras();
-    for (size_t j = 0; j < horas.size(); j++){
-      dias.push_back(horas[j].first);
-    }
-  }
-  sort(dias.begin(), dias.end());
-  reverse(dias.begin(), dias.end());
-  cout << "Día con mayor número de horas extras: " << dias[0] << endl;
-
-  return 0;
+    cout << "\nEmpleado con mayor horas extras: " << maxHorasExtras.getNombreCompleto()<< " " << maxHorasExtras.getTotalHorasExtras() << " horas" << endl;
+    cout << "Empleado con menor horas extras: " << minHorasExtras.getNombreCompleto() << " " << minHorasExtras.getTotalHorasExtras() << " horas" << endl;
+    cout << "Día con mayor horas extras: Día " << diaMaxHorasExtras << " con " << maxHorasDia << " horas." << endl;
+    return 0;
 }
