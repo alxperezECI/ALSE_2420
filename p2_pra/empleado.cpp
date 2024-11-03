@@ -45,3 +45,4 @@ std::vector<HorasExtras> Empleado::gethoras() const {
 void Empleado::asignarsalario(const double &s) {
     _salarioMensual = s;
 }
+//Entregable por Miguel Angel Pardo y Juan David Ospina
