@@ -1,62 +1,100 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <cmath>
 #include <string>
 #include <sstream>
-#include <algorithm>
-
+#include <iomanip>
 #include "empleado.h"
 
-using namespace std;
+void cargarArchivo(const char* file, std::vector<Empleado>& trabajadores) {
+    std::string nombre, apellido;
+    unsigned int cedula;
+    double salario;
+    int dia;
+    float horas;
+    std::string texto;
+    std::stringstream ss;
 
-void cargarArchivo( char* file, vector<Empleado> &trabajadores ){
-  string nombre, apellido;
-  unsigned int cedula;
-  double salario;
-  int dia;
-  float horas;
-  string   texto;
-  stringstream ss;
-  
-  ifstream archivo( file );
-  if( archivo.is_open() ){
-    while( !archivo.eof() && getline( archivo, texto)){
-      ss.clear();
-      ss << texto ; 
-      ss >> nombre >> apellido >> cedula >> salario;
-      Empleado e( nombre, apellido, cedula, salario );
-      while( ss >> dia >> horas ){
-        e.agregarHorasExtras( dia, horas );
-      }
-      trabajadores.push_back( e );
+    std::ifstream archivo(file);
+    if (archivo.is_open()) {
+        while (!archivo.eof() && getline(archivo, texto)) {
+            ss.clear();
+            ss << texto;
+            ss >> nombre >> apellido >> cedula >> salario;
+            Empleado e(nombre, apellido, salario, std::to_string(cedula));
+            while (ss >> dia >> horas) {
+                e.agregarHorasExtras(dia, horas);
+            }
+            trabajadores.push_back(e);
+        }
+        archivo.close();
+    } else {
+        std::cerr << "No se pudo abrir el archivo " << file << std::endl;
     }
-    archivo.close();
-  }
 }
 
-int main(int argc, char**argv){
-  float c = 0.;
-  vector<Empleado> _trabajadores;
-  
-  cargarArchivo( argv[1], _trabajadores );//carga bien
-  size_t tam = _trabajadores.size();
-  cout << "Número de trabajadores: " << tam << endl;
-// Calcula el valor a pagar por horas extras de cada trabajador 
-// y mostrar el valor mensual y el valor de las horas extras en un 
-// arreglo tabular
-// Empleado (Nmbre y apellido) | Salario mensual | Horas extras | Total a pagar
+int main() {
+    std::vector<Empleado> empleados;
+    cargarArchivo("datos.txt", empleados);
 
+    if (empleados.empty()) {
+        std::cout << "No se encontraron empleados en el archivo." << std::endl;
+        return 1;
+    }
 
-/* Encontrar y reportar el empleado con mayor número de horas extras
-*/
+    Empleado empleadoConMasHorasExtras = empleados[0];
+    Empleado empleadoConMenosHorasExtras = empleados[0];
+    
+    for (const Empleado& empleado : empleados) {
+        if (empleado.obtenerTotalHorasExtras() > empleadoConMasHorasExtras.obtenerTotalHorasExtras()) {
+            empleadoConMasHorasExtras = empleado;
+        }
+        if (empleado.obtenerTotalHorasExtras() < empleadoConMenosHorasExtras.obtenerTotalHorasExtras()) {
+            empleadoConMenosHorasExtras = empleado;
+        }
+    }
 
+    std::cout << "El empleado con más horas extra es: " 
+              << empleadoConMasHorasExtras.obtenerNombreCompleto() 
+              << " con " << empleadoConMasHorasExtras.obtenerTotalHorasExtras() 
+              << " horas." << std::endl;
 
-/* Encontrar y reportar el empleado con menor número de horas extras
-*/
+    std::cout << "El empleado con menos horas extra es: " 
+              << empleadoConMenosHorasExtras.obtenerNombreCompleto() 
+              << " con " << empleadoConMenosHorasExtras.obtenerTotalHorasExtras() 
+              << " horas." << std::endl;
 
-/* Encontrar y reportar el día con mayor número de horas extras
-*/
+    // Reporte detallado de cada empleado
+    std::cout << "\nReporte de Empleados:\n";
+    std::cout << std::fixed << std::setprecision(2);
 
-  return 0;
+    for (const Empleado& empleado : empleados) {
+        int diaConMasHoras = empleado.obtenerDiaConMasHorasExtras();
+        std::cout << "Cedula: " << empleado.obtenerCodigo() 
+                  << " | Nombre: " << empleado.obtenerNombreCompleto() 
+                  << " | Salario Base: " << empleado.obtenerSalarioBase()
+                  << " | Salario Total: " << empleado.calcularSalarioTotal() 
+                  << " | Horas Extras: " << empleado.obtenerTotalHorasExtras()
+                  << " | Día con más horas extras: " << diaConMasHoras 
+                  << std::endl;
+    }
+
+    
+    int diaConMasHorasGlobal = -1;
+    float maxHorasGlobal = 0.0;
+
+    for (const auto& empleado : empleados) {
+        int diaConMasHoras = empleado.obtenerDiaConMasHorasExtras();
+        float horasEnEseDia = empleado.obtenerHorasEnDia(diaConMasHoras);
+
+        if (horasEnEseDia > maxHorasGlobal) {
+            maxHorasGlobal = horasEnEseDia;
+            diaConMasHorasGlobal = diaConMasHoras;
+        }
+    }
+
+    std::cout << "\nEl día con más horas extras entre todos los empleados es el día " 
+              << diaConMasHorasGlobal << " con " << maxHorasGlobal << " horas." << std::endl;
+
+    return 0;
 }
