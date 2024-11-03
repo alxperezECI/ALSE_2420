@@ -1,12 +1,10 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <cmath>
 #include <string>
 #include <sstream>
-#include <algorithm>
-
 #include "empleado.h"
+#include <algorithm>
 
 using namespace std;
 
@@ -35,14 +33,71 @@ void cargarArchivo( char* file, vector<Empleado> &trabajadores ){
   }
 }
 
-int main(int argc, char**argv){
-  float c = 0.;
-  vector<Empleado> _trabajadores;
+int main(int argc, char** argv) {
+  if (argc < 2) {
+    cerr << "Usage: " << argv[0] << " <file_path>" << endl;
+    return 1;
+  }
 
-  cargarArchivo( argv[1], _trabajadores );
-  size_t tam = _trabajadores.size();
-  cout << "Número de trabajadores: " << tam << endl;
+  vector<Empleado> trabajadores;
+  cargarArchivo(argv[1], trabajadores);
 
+  size_t tam = trabajadores.size();
+  cout << "Número de trabajadores en la empresa actualmente: " << tam << endl;
+
+  cout << endl << "Nombre | Apellido | Pago salario mensual | Pago horas extras | Total" << endl;
+
+  for (const auto& empleado : trabajadores) {
+    cout << empleado.getnombre_apellido() << " | $" 
+         << empleado.getsalariomensual() << "         | $" 
+         << empleado.valorhorasextra() << "          | $" 
+         << (empleado.getsalariomensual() + empleado.valorhorasextra()) << endl;
+  }
+
+
+  auto max_it = max_element(trabajadores.begin(), trabajadores.end(), 
+    [](const Empleado& a, const Empleado& b) {
+      return a.horasextras() < b.horasextras();
+    });
+
+  if (max_it != trabajadores.end()) {
+    cout << endl << "El empleado con mayor número de horas extra es: " 
+         << max_it->getnombre_apellido() << " con " << max_it->horasextras() 
+         << " horas." << endl;
+  }
+
+
+  auto min_it = min_element(trabajadores.begin(), trabajadores.end(), 
+    [](const Empleado& a, const Empleado& b) {
+      return a.horasextras() < b.horasextras();
+    });
+
+  if (min_it != trabajadores.end()) {
+    cout << endl << "El empleado con menor número de horas extra es: " 
+         << min_it->getnombre_apellido() << " con " << min_it->horasextras() 
+         << " horas." << endl;
+  }
+
+
+  int diamax = 0;
+  float horasmax = 0.;
+  float totalhoras[31] = {0.};
+
+  for (const auto& empleado : trabajadores) {
+    for (const auto& extras : empleado.gethoras()) {
+      int dia = extras.first;
+      float horas = extras.second;
+      totalhoras[dia - 1] += horas;
+    }}
+
+  for (int i = 0; i < 31; ++i) {
+    if (totalhoras[i] > horasmax) {
+      diamax = i + 1;
+      horasmax = totalhoras[i];
+    }}
+
+  cout << endl << "El día con mayor número de horas extras fue el día #" 
+       << diamax << " con " << horasmax << " horas." << endl;
 
   return 0;
 }

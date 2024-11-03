@@ -4,9 +4,9 @@
 #include <string>
 #include <vector>
 
+using namespace std;
 
-
-typedef std::pair<int, float> HorasExtras;
+typedef pair<int, float> HorasExtras;
 
 class Empleado {
     std::string _nombre;
@@ -16,16 +16,17 @@ class Empleado {
     std::vector<HorasExtras> _horasExDia;
 
 public:
+    // Constructor
     Empleado(const std::string& nombre, const std::string& apellido, 
-        const unsigned int& cedula, double salarioMensual);
+             const unsigned int& cedula, double salarioMensual);
 
-    void agregarHorasExtras(int dia, float horas) ;
-
-    double val_horasextra();
-
-    bool menor();
-    bool mayor();
-
+    void agregarHorasExtras(const int &dia, const float &horas);
+    float horasextras() const;
+    float valorhorasextra() const;
+    string getnombre_apellido() const;
+    unsigned int getsalariomensual() const;
+    vector<HorasExtras> gethoras() const;
+    void asignarsalario(const double &s);
 };
 
 #endif
