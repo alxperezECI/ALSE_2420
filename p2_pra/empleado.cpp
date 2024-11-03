@@ -25,9 +25,9 @@ float Empleado::horasextras() const {
 
 float Empleado::valorhorasextra() const {
     float horas = horasextras();
-    float valhora = _salarioMensual / 192; 
+    float valor = _salarioMensual / 192; 
 // 8 h * 6 lab* 4 semanas
-    return horas * valhora;
+    return horas * valor;
 }
 
 std::string Empleado::getnombre_apellido() const {
