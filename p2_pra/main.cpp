@@ -71,7 +71,6 @@ int main(int argc, char**argv){
             }
         }
     }
-    
     cout << "\nEmpleado con mayor horas extras: " << maxHorasExtras.getNombreCompleto()<< " " << maxHorasExtras.getTotalHorasExtras() << " horas" << endl;
     cout << "Empleado con menor horas extras: " << minHorasExtras.getNombreCompleto() << " " << minHorasExtras.getTotalHorasExtras() << " horas" << endl;
     cout << "Día con mayor horas extras: Día " << diaMaxHorasExtras << " con " << maxHorasDia << " horas." << endl;
