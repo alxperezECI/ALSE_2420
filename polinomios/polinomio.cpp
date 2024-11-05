@@ -47,7 +47,7 @@ Polinomio Polinomio::operator+( const Polinomio &a ){
         c.nuevoTermino( it->second, it->first );
     }
     for(it = a._terminoL.begin(); it != a._terminoL.end(); ++it){
-        c.nuevoTermino( it->second, it->first);
+        c.nuevoTermino( it->second, it->first );
     }
     c.simplificar();
     return c;
@@ -66,7 +66,6 @@ Polinomio Polinomio::operator+( const Polinomio &a ){
         c.nuevoTermino( -(it->second), it->first );
     }
     c.simplificar();
-    c.ordenar();
     return c;
   }
 
@@ -135,7 +134,7 @@ bool Polinomio::borrar(){
 bool Polinomio::ordenar(){
     _terminoL.sort();
     _terminoL.reverse();
-    return true;
+	return true;
 }
   
 void Polinomio::nuevoTermino(float c, int p) {
@@ -205,29 +204,28 @@ bool Polinomio::redefinir(string pol) {
     return true;
 }
   
-bool Polinomio::simplificar() {
-    list<termino>::iterator it1 = _terminoL.begin();
-    while (it1 != _terminoL.end()) {
-        list<termino>::iterator it2 = next(it1);
-        while (it2 != _terminoL.end()) {
-            if (it1->first == it2->first) {
+bool Polinomio::simplificar(){
+	list<termino>::iterator it1, it2;
+    it1 = _terminoL.begin();  
+    while( it1 != _terminoL.end() ){
+        it2 = it1; 
+        ++it2;
+        while( it2 != _terminoL.end()  ){
+            //cout << &(*it1) << " y " << &(*it2) << endl;
+            if( it1->first == it2->first && it1 != it2 ){
+                cout << "Sumando " << it1->second << " y " << it2->second << endl;
                 it1->second += it2->second;
-                it2 = _terminoL.erase(it2);
-            } else {
-                ++it2;
+                _terminoL.erase( it2 );
+                if(it1->second == 0){
+                    _terminoL.erase( it1 );
+                    it1 = _terminoL.begin();
+                }
+                it2 = it1;
             }
+            ++it2;
         }
-        if (it1->second == 0) {
-            it1 = _terminoL.erase(it1);
-        } else {
-            ++it1;
-        }
+        ++it1;
     }
-
-    if (_terminoL.empty()) {
-        it1= _terminoL.insert(it1, termino(0, 0));
-    }
-    
     return true;
 }
 
