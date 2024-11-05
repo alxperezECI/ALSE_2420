@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/nominas.dir/main.cpp.o CMakeFiles/nominas.dir/empleado.cpp.o -o nominas 
