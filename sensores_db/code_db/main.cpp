@@ -49,13 +49,13 @@ int main(int argc, char* argv[]) {
    
    for (int i = 0; i < 100; ++i) {
 
-      float temp = -10 + (std::rand() % 45);   // Temperatura entre -10.00 y 45.00 °C
-      float hume = (std::rand() % 101);                 // Humedad entre 0 y 100 %
-      float hume_s = (std::rand() % 101);               // Humedad del suelo entre 0 y 100 %
-      float vel = (std::rand() % 40);         // Velocidad entre 0.00 y 40.00 m/s
-      float dir_vel = -180 + (std::rand() % 360);       // Dirección del viento entre -180 y 180 grados
-      float prec = (std::rand() % 200);       // Precipitación entre 0.00 y 200.00 mm
-      float int_Luz = (std::rand() % 40001) ;     // Intensidad de luz entre 0.0 y 4000.0 lumenes
+   float temp = (-100 + (std::rand() % 450)) / 10.0;   // Temperatura entre -10.00 y 45.00 °C
+   float hume = ((std::rand() % 1001)) / 10.0;         // Humedad entre 0.0 y 100.0 %
+   float hume_s = (std::rand() % 1001) / 10.0;         // Humedad del suelo entre 0.0 y 100.0 %
+   float vel = (std::rand() % 400) / 10.0;             // Velocidad entre 0.0 y 40.0 m/s
+   float dir_vel = (-1800 + (std::rand() % 3600)) / 10.0; // Dirección del viento entre -180.0 y 180.0 grados
+   float prec = (std::rand() % 2000) / 10.0;           // Precipitación entre 0.0 y 200.0 mm
+   float int_Luz = (std::rand() % 400001) / 10.0;      // Intensidad de luz entre 0.0 y 4000.0 lumenes
 
 //--------------------------------------------------------------------------------------      
       // Incrementar la fecha y hora
@@ -92,7 +92,7 @@ int main(int argc, char* argv[]) {
       if( rc != SQLITE_OK ){
          fprintf(stderr, "SQL error: %s\n", zErrMsg);
          sqlite3_free(zErrMsg);
-         break; // Si hay un error, detener la ejecución
+         break;
       } else {
          fprintf(stdout, "Record %d created successfully\n", i + 1);
       }
