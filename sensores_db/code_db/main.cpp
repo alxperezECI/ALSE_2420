@@ -49,13 +49,13 @@ int main(int argc, char* argv[]) {
    
    for (int i = 0; i < 100; ++i) {
 
-   float temp = (-100 + (std::rand() % 450)) / 10.0;   // Temperatura entre -10.00 y 45.00 °C
-   float hume = ((std::rand() % 1001)) / 10.0;         // Humedad entre 0.0 y 100.0 %
-   float hume_s = (std::rand() % 1001) / 10.0;         // Humedad del suelo entre 0.0 y 100.0 %
-   float vel = (std::rand() % 400) / 10.0;             // Velocidad entre 0.0 y 40.0 m/s
-   float dir_vel = (-1800 + (std::rand() % 3600)) / 10.0; // Dirección del viento entre -180.0 y 180.0 grados
-   float prec = (std::rand() % 2000) / 10.0;           // Precipitación entre 0.0 y 200.0 mm
-   float int_Luz = (std::rand() % 400001) / 10.0;      // Intensidad de luz entre 0.0 y 4000.0 lumenes
+      int temp = -10 + (std::rand() % 46);   // Temperatura entre -10 y 45 °C
+      int hume = (std::rand() % 101);                 // Humedad entre 0 y 100 %
+      int hume_s = (std::rand() % 101);               // Humedad del suelo entre 0 y 100 %
+      int vel = (std::rand() % 41);         // Velocidad entre 0.00 y 40 m/s
+      int dir_vel = -180 + (std::rand() % 361);       // Dirección del viento entre -180 y 180 grados
+      int prec = (std::rand() % 201);       // Precipitación entre 0 y 200 mm
+      int int_Luz = (std::rand() % 40001) ;     // Intensidad de luz entre 0 y 4000 lumenes
 
 //--------------------------------------------------------------------------------------      
       // Incrementar la fecha y hora
