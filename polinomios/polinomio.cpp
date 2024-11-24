@@ -6,6 +6,7 @@
 
 using namespace std;
 
+typedef std::pair<int, float> termino;
 
 Polinomio::Polinomio(char var) {
     _grado = -1;
@@ -67,9 +68,57 @@ Polinomio Polinomio::operator+( const Polinomio &a ){
     c.simplificar();
     return c;
   }
-  bool Polinomio::operator==( const Polinomio &a ){
+
+    Polinomio Polinomio::operator*( const Polinomio &a ){
+        Polinomio c('X');
+        list<termino>::const_iterator it1, it2;
+        for(it1 = _terminoL.begin(); it1 != _terminoL.end(); ++it1){
+            for(it2 = a._terminoL.begin(); it2 != a._terminoL.end(); ++it2){
+                c.nuevoTermino( it1->second * it2->second, it1->first + it2->first );
+            }
+        }
+        c.simplificar();
+        c.ordenar();
+        return c;
+    }
+
+    Polinomio Polinomio::operator/( const double &a ){
+        Polinomio c('X');
+        list<termino>::const_iterator it,it2;
+        for(it = _terminoL.begin(); it != _terminoL.end(); ++it){
+            c.nuevoTermino( it->second / a , it->first );
+        }
+        c.simplificar();
+        c.ordenar();
+        return c;
+    }
+
+
+ bool Polinomio::operator==( const Polinomio &a ) {
+    if (_variable != a._variable) {
+        return false;
+    }
+    if (_grado != a._grado) {
+        return false;
+    }
+    if (_terminoL.size() != a._terminoL.size()) {
+        return false;
+    }
+    list<termino>::const_iterator it1 = _terminoL.begin();
+    list<termino>::const_iterator it2 = a._terminoL.begin();
+    while (it1 != _terminoL.end() && it2 != a._terminoL.end()) {
+        if (it1->second != it2->second) {
+            return false;
+        }
+        if (it1->first != it2->first) {
+            return false;
+        }
+        ++it1;
+        ++it2;
+    }
     return true;
-  } 
+}
+
 
 ostream& operator<<(std::ostream& out, Polinomio a){
     out << a.getString();

@@ -22,10 +22,9 @@ public:
   bool operator>( const Complex &a ); 
 
   friend ostream& operator<<(std::ostream& out, Complex a);
-
-  // Adicionaré las funciones get/set
+// adicionar funciones get y set para re e im
   void Re(const double &r);
-  void Im(const double &im);
+  void Im(const double &i);
   double Re();
   double Im();
 };

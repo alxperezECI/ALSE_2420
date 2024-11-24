@@ -30,11 +30,14 @@ int main()
     c = a - b;
     cout << "La resta de los polinomios es: " << c << endl;
 
-////    c = a * b;
-////    cout << "La multiplicación de los polinomios es: " << c << endl;
+    c = a * b;
+    cout << "La multiplicación de los polinomios es: " << c << endl;
 
-//    c = a / M_PI;
-//    cout << "La división del polinomio 1 por Pi es: " << c << endl;
+    c = a / M_PI;
+    cout << "La división del polinomio 1 por Pi es: " << c << endl;
+    
+    cout <<" a==b : "<< ((a == b) ? "true" : "false")<< endl;
+    
 
     return 0;
 }

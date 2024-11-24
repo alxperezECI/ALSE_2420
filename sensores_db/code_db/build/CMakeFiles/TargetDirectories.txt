@@ -1,0 +1,3 @@
+/home/gabi/proyectos/ALSE_2420/sensores_db/code_db/build/CMakeFiles/sqlitedb_testing_open.dir
+/home/gabi/proyectos/ALSE_2420/sensores_db/code_db/build/CMakeFiles/edit_cache.dir
+/home/gabi/proyectos/ALSE_2420/sensores_db/code_db/build/CMakeFiles/rebuild_cache.dir

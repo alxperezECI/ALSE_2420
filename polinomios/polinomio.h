@@ -28,6 +28,8 @@ public:
   Polinomio operator=( const Polinomio &a );
   Polinomio operator+( const Polinomio &a );
   Polinomio operator-( const Polinomio &a );
+  Polinomio operator*( const Polinomio &a );
+  Polinomio operator/( const double &a );
   bool operator==( const Polinomio &a ); 
 
   friend ostream& operator<<(std::ostream& out, Polinomio a);

@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/sqlitedb_testing_open.dir/main.cpp.o -o sqlitedb_testing_open  -lsqlite3 
