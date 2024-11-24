@@ -13,7 +13,7 @@ int main(int argc, char* argv[]) {
    int rc;
    string sqlstr;
 
-   /* Open database */
+   /* abrir database */
    rc = sqlite3_open("sensor.db", &db);
    
    if( rc != 0 ) {
@@ -23,7 +23,7 @@ int main(int argc, char* argv[]) {
       fprintf(stdout, "Opened database successfully\n");
    }
 
-   /* Create table if it doesn't exist */
+   /* crear tabla*/
    sqlstr = "CREATE TABLE IF NOT EXISTS sensor (id_medida INTEGER PRIMARY KEY NOT NULL," \
             "Fecha TEXT NOT NULL, Temperatura REAL NOT NULL, Humedad REAL NOT NULL, Humedad_Suelo REAL NOT NULL," \
             "velocidad REAL NOT NULL, direccion_viento REAL NOT NULL, precipitacion REAL NOT NULL," \
@@ -41,7 +41,7 @@ int main(int argc, char* argv[]) {
 
    std::srand(std::time(0));
    int day = 23, month = 11, year = 2024;   //fecha inicial "23/11/2024"
-   int hour = 10, minute = 40; //hora inicial "10:40"
+   int hour = 10, minute = 40, second = 0; //hora inicial "10:40:00"
 
 //--------------------------------------------------------------------------------------
    
@@ -59,29 +59,25 @@ int main(int argc, char* argv[]) {
 
 //--------------------------------------------------------------------------------------      
       // Incrementar la fecha y hora
-      minute += 5;
-      if (minute >= 60) {
-         minute = 0;
-         hour++;
-         if (hour >= 24) {
-            hour = 0;
-            day++;
-            if (day > 31) {
-               day = 1;
-               month++;
-               if (month > 12) {
-                  month = 1;
-                  year++;
-               }
+      second += 5;
+      if (second >= 60) {
+         second = 0;
+         minute++;
+         if (minute >= 60) {
+            minute = 0;
+            hour++;
+            if (hour >= 24) {
+               hour = 0;
+               day++;
             }
          }
       }
-
       string fecha = to_string(day) + "/" +
                      to_string(month) + "/" +
                      to_string(year) + " " +
                      to_string(hour) + ":" +
-                     (minute < 10 ? "0" : "") + to_string(minute);
+                     (minute < 10 ? "0" : "") + to_string(minute) + ":" +
+                     (second < 10 ? "0" : "") + to_string(second);
 
 //--------------------------------------------------------------------------------------
 
