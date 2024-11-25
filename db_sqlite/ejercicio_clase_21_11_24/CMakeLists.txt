@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.10)
+project(sqlite_crea_tabla)
+add_executable(${PROJECT_NAME}_create "create_table.cpp" )
+add_executable(${PROJECT_NAME}_insert "datos_table.cpp" )
+add_executable(${PROJECT_NAME}_select "imprimir_table.cpp")
+target_link_libraries (${PROJECT_NAME}_create sqlite3 )
+target_link_libraries (${PROJECT_NAME}_insert sqlite3 )
+target_link_libraries (${PROJECT_NAME}_select sqlite3 )
