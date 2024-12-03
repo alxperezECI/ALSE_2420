@@ -12,3 +12,42 @@ dia_div::~dia_div()
 {
     delete ui;
 }
+
+void dia_div::on_rb_AE_clicked(bool checked)
+{
+  if(ui->rb_AB->isChecked() || ui->rb_BA->isChecked()){
+    ui->gb_Escalar->setEnabled(false);
+  }else{
+    ui->gb_Escalar->setEnabled(true);
+  }
+}
+
+
+void dia_div::on_rb_BA_clicked()
+{
+    if(ui->rb_AB->isChecked() || ui->rb_BA->isChecked()){
+      ui->gb_Escalar->setEnabled(false);
+    }else{
+      ui->gb_Escalar->setEnabled(true);
+    }
+}
+
+
+void dia_div::on_rb_AE_clicked()
+{
+    if(ui->rb_AB->isChecked() || ui->rb_BA->isChecked()){
+      ui->gb_Escalar->setEnabled(false);
+    }else{
+      ui->gb_Escalar->setEnabled(true);
+    }
+}
+
+void dia_div::on_rb_BE_clicked()
+{
+    if(ui->rb_AB->isChecked() || ui->rb_BA->isChecked()){
+      ui->gb_Escalar->setEnabled(false);
+    }else{
+      ui->gb_Escalar->setEnabled(true);
+    }
+}
+
