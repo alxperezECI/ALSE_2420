@@ -15,6 +15,9 @@ public:
     explicit dia_div(QWidget *parent = nullptr);
     ~dia_div();
 
+signals:
+    void emitir_datos(int tipo, double escalar);
+
 private slots:
     void on_rb_AE_clicked(bool checked);
 
@@ -23,6 +26,8 @@ private slots:
     void on_rb_AE_clicked();
 
     void on_rb_BE_clicked();
+
+    void on_buttonBox_accepted();
 
 private:
     Ui::dia_div *ui;

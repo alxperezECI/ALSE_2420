@@ -20,10 +20,12 @@ public:
 
 private slots:
     void on_cmd_Operar_clicked();
+    void recibir_datos(int tipo, double esc);
 
 private:
     Ui::ejemploPp *ui;
     //Eigen::MatrixXd A(2,2),B(2,2), R(2,2);
-
+    int _tipo_div;
+    double _escalar;
 };
 #endif // EJEMPLOPP_H
