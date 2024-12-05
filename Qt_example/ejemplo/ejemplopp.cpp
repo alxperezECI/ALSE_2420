@@ -1,5 +1,6 @@
 #include "ejemplopp.h"
 #include "./ui_ejemplopp.h"
+#include <dia_div.h>
 #include <eigen3/Eigen/Dense>
 
 ejemploPp::ejemploPp(QWidget *parent)
@@ -49,6 +50,9 @@ void ejemploPp::on_cmd_Operar_clicked()
         R = A * B;
         break;
     case 3:
+        dia_div wsec(this);
+        wsec.show();
+        wsec.exec();
         R = A * B.inverse();
         break;
     }
